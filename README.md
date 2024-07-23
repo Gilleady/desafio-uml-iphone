@@ -7,38 +7,32 @@ Este repositório contém a modelagem UML de um iPhone, com foco nas funcionalid
 ```mermaid
 classDiagram
   class iPhone {
-    +tocar(): void
-    +pausar(): void
-    +selecionarMusica(musica: String): void
-    +ligar(numero: String): void
-    +atender(): void
-    +iniciarCorreioVoz(): void
-    +exibirPagina(url: String): void
-    +adicionarNovaAba(): void
-    +atualizarPagina(): void
   }
 
   class ReprodutorMusical {
+    <<interface>>
     +tocar(): void
     +pausar(): void
     +selecionarMusica(musica: String): void
   }
 
   class AparelhoTelefonico {
+    <<interface>>
     +ligar(numero: String): void
     +atender(): void
     +iniciarCorreioVoz(): void
   }
 
   class NavegadorInternet {
+    <<interface>>
     +exibirPagina(url: String): void
     +adicionarNovaAba(): void
     +atualizarPagina(): void
   }
 
-  iPhone ..|> ReprodutorMusical
-  iPhone ..|> AparelhoTelefonico
-  iPhone ..|> NavegadorInternet
+  ReprodutorMusical <|-- iPhone
+  AparelhoTelefonico <|-- iPhone
+  NavegadorInternet <|-- iPhone
 ```
 
 
